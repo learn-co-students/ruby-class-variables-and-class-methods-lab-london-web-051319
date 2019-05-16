@@ -32,7 +32,7 @@ def self.genre_count
 end
 
 def self.artist_count
-  @@artists.uniq.map {|artists| [artists, @@artists.count(artists)]}.to_h
+  @@artists.group_by{|v| v}.flat_map{ |k, v| [k, v.size] }]
 end
 
 end
